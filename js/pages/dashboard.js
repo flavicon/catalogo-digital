@@ -3,11 +3,11 @@ function dashboard() {
     ${navbar()}
       <div class="row justify-content-md-center">
         <div class="col-4">
-          <div class="card cardInformation">
+          <div class="card cardDashboard cardInformation">
             <div class="card-body">
               <div class="row">
                 <div class="col-sm">
-                  <span class="material-icons" style="font-size: 8rem; color: #fff">
+                  <span class="material-icons" style="font-size: 8rem;">
                     store
                   </span>
                 </div>
@@ -20,11 +20,11 @@ function dashboard() {
           </div>
         </div>
         <div class="col-4">
-          <div class="card cardInformation">
+          <div class="card cardDashboard cardInformation">
             <div class="card-body">
               <div class="row">
                 <div class="col-sm">
-                  <span class="material-icons" style="font-size: 8rem; color: #fff">
+                  <span class="material-icons" style="font-size: 8rem;">
                     pin_drop
                   </span>
                 </div>
@@ -37,7 +37,7 @@ function dashboard() {
           </div>
         </div>
         <div class="col-4">
-          <div class="card">
+          <div class="card cardDashboard">
             <div class="card-body">
               <div>
                 <div>

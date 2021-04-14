@@ -14,23 +14,20 @@ span {
 }
 
 /* Style Cards Dashboard */
-
-.card {
+.cardDashboard {
   height: 11rem;
   box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
   transition: 0.3s;
 }
 
-.card:hover {
+.cardInformation {
+  background-color: #FCA311;
+}
+
+.cardDashboard:hover {
   margin-top: -0.5rem;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.25);
 }
-
-.cardInformation {
-  background-color: #FCA311;
-  color: #fff;
-}
-
 
 .info > p {
   font-size: 1.5rem;

@@ -1,6 +1,13 @@
 function addCategory() {
   return `
     ${navbar()}
-    <h1>Add Categories</h1>
+    <div class="row justefity-content-center">
+      <div class="col-4 off-set-1">
+        <img src="../../img/pana.svg">
+      </div>
+      <div class="col-6" style="background: #fff">
+         
+      </div>
+    </div>
   `
 }
