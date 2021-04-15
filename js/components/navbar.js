@@ -45,7 +45,7 @@ function navbar() {
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <span class="text-white mr-2">Bem vindo, <strong>usuário</strong></span>
-          <a class="btn btn-outline-success my-2 my-sm-0" href="/">Sair</a>
+          <a class="btn btn-outline-warning my-2 my-sm-0" href="/">Sair</a>
         </form>
       </div>
     </nav>
