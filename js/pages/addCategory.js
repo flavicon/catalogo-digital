@@ -4,7 +4,7 @@ function addCategory() {
     <div class="row justify-content-between mt-3 p-3">
       <div class="col-4">
         <div class="justy">
-          <img src="../../img/pana.svg">
+          <img src="img/pana.svg">
         </div>
       </div>
 
