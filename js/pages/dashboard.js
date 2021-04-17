@@ -57,7 +57,7 @@ function dashboard() {
       <div class="row justify-content-center tableInformation">
         <div class="col-4 info text-center cardInformation">
           <p class="mb-3 mt-3">Lojas com mais acessos<p>
-          <img src="../../img/dashboardImg.svg" alt="Man show dashboard">
+          <img src="img/dashboardImg.svg" alt="Man show dashboard">
         </div>
         <div class="col-8" style="background-color: #fff">
           <table class="table">
