@@ -30,7 +30,7 @@ function addCategory() {
             </div>
           </div>
           <div class="form-row justify-content-center mb-4">
-            <button>Enviar</button>
+            <button class="btn btn-warning btn-lg">Enviar</button>
           </div>
         </form>
       </div>
