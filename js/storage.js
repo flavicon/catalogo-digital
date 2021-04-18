@@ -8,11 +8,7 @@ function saveCategory(category) {
   localStorage.setItem('categories', JSON.stringify(category));
 }
 
-function addNewCategory() {
-    let name = document.getElementById('nameCategory').value;
-    let description = document.getElementById('descriptionCategory').value;
-    let logo = document.getElementById('uploadLogoCategory').value;
-
+function addNewCategory(name, description, logo) {
     let newCategory = {
       name: name,
       description: description,
@@ -23,9 +19,4 @@ function addNewCategory() {
     categories.push(newCategory);
 
     saveCategory(categories);
-    $('#alert').toast('show')
-    document.getElementById('root').addEventListener('submit', () => { 
-      event.preventDefault(); 
-    })
 }
-  

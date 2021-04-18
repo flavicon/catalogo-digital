@@ -1,0 +1,1 @@
+const API_URL = 'https://catalogo-digital-flavio-default-rtdb.firebaseio.com/';

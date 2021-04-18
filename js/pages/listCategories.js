@@ -1,5 +1,26 @@
 function listCategories() {
 
+  fetch(API_URL + 'categories.json')
+    .then(response => response.json())
+    .then(response => {
+      for (const id in response) {
+        let category = response[id];
+
+        document.getElementById('tableCategory').innerHTML += `
+          <tr>
+            <td><img src=${category.image} width="100px"></td>
+            <td>${category.name}</td>
+            <td>${category.description}</td>
+            <td>
+              <button class="btn btn-outline-warning">Editar</button>
+              <button class="btn btn-outline-danger">Excluir</button>
+            </td>
+          </tr>
+
+        `
+      }
+    })
+
   return `
     ${navbar()}
     <section class="searchCategory">
@@ -18,10 +39,10 @@ function listCategories() {
     </section>
 
     <section class="resultSearchCategory">
-      <table class="table table-dark">
-        <thead>
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
           <tr>
-            <th scope="col">Logo</th>
+            <th scope="col">Imagem</th>
             <th scope="col">Nome</th>
             <th scope="col">Descrição</th>
             <th scope="col">Ação</th>
