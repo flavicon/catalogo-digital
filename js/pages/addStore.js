@@ -54,7 +54,7 @@ function addStore() {
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <input type="email" class="form-control" id="emailStore" placeholder="email">
+              <input type="email" class="form-control" id="emailStore" placeholder="E-mail">
             </div>
           </div>
 
@@ -72,7 +72,7 @@ function addStore() {
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <textarea type="text" placeholder="Endereco" class="form-control" id="addressStore" rows="5"></textarea>
+              <textarea type="text" placeholder="Endereço" class="form-control" id="addressStore" rows="5"></textarea>
             </div>
           </div>
 
