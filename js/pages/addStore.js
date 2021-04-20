@@ -5,6 +5,8 @@ function insertStore() {
     phone: document.getElementById('phoneStore').value,
     image: document.getElementById('imageStore').value,
     address: document.getElementById('addressStore').value,
+    region: document.getElementById('regionStore').selectedOptions[0].value,
+    category: document.getElementById('categoryStore').selectedOptions[0].value,
   }
 
   fetch(API_URL + 'stories.json', {
