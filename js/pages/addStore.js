@@ -9,7 +9,7 @@ function insertStore() {
     category: document.getElementById('categoryStore').selectedOptions[0].value,
   }
 
-  fetch(API_URL + 'stories.json', {
+  fetch(API_URL + 'stores.json', {
     method: 'POST',
     body: JSON.stringify(newStore),
   })

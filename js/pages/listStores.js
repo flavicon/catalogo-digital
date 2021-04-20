@@ -1,3 +1,10 @@
+function deleteStore() {
+  fetch(API_URL + "stores.json")
+    .then(response => response.query)
+    .then(response => console.log(response))
+}
+
+
 function listStores() {
 
   fetch(API_URL + "stores.json")
@@ -14,13 +21,14 @@ function listStores() {
             <td>${store.phone}</td>
             <td>
               <button class="btn btn-warning">Editar</button>
-              <button class="btn btn-danger">Excluir</button>
+              <button class="btn btn-danger" onclick="deleteStore()">Excluir</button>
             </td>
           </tr>
         ` 
       }
     })
 
+  
   return `
     ${navbar()}
     <section class="searchStorey mb-3">
