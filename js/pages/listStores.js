@@ -1,7 +1,14 @@
-function deleteStore() {
-  fetch(API_URL + "stores.json")
-    .then(response => response.query)
-    .then(response => console.log(response))
+function deleteStore(id) {
+  let removeStore = confirm('Deseja realmente excluir essa loja?');
+
+  if (removeStore === true) {
+    fetch(API_URL + `stores/${id}.json`, {
+      method: 'DELETE',
+    })
+    alert('Loja excluida com sucesso.')
+
+    document.location.reload(true)
+  }
 }
 
 
@@ -12,7 +19,8 @@ function listStores() {
     .then(response => {
       for (let id in response) {
         let store = response[id]
-
+        console.log(id)
+        
         document.getElementById('tableStore').innerHTML += `
           <tr>
             <td>${store.image}</td>
@@ -21,7 +29,7 @@ function listStores() {
             <td>${store.phone}</td>
             <td>
               <button class="btn btn-warning">Editar</button>
-              <button class="btn btn-danger" onclick="deleteStore()">Excluir</button>
+              <button class="btn btn-danger" onclick="deleteStore('${id}')">Excluir</button>
             </td>
           </tr>
         ` 

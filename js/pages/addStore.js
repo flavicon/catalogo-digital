@@ -1,21 +1,55 @@
-function insertStore() {
-  let newStore = {
-    name: document.getElementById('nameStore').value,
-    email: document.getElementById('emailStore').value,
-    phone: document.getElementById('phoneStore').value,
-    image: document.getElementById('imageStore').value,
-    address: document.getElementById('addressStore').value,
-    region: document.getElementById('regionStore').selectedOptions[0].value,
-    category: document.getElementById('categoryStore').selectedOptions[0].value,
-  }
+function insertStore(newStore) {
+  event.preventDefault()
 
+  document.getElementById('formStore').reset()
   fetch(API_URL + 'stores.json', {
     method: 'POST',
     body: JSON.stringify(newStore),
   })
-
+  
   alert('cadastrado com sucesso');
-};
+
+  document.getElementById('formStore').reset()
+
+}
+
+function valideForm() {
+  let name = document.getElementById('nameStore').value
+  let email = document.getElementById('emailStore').value
+  let phone = document.getElementById('phoneStore').value
+  let image = document.getElementById('imageStore').value
+  let address = document.getElementById('addressStore').value
+  let region = document.getElementById('regionStore').selectedOptions[0].value
+  let category = document.getElementById('categoryStore').selectedOptions[0].value
+
+  if (name.length < 4) {
+    alert('Por favor preencha um nome com mais de 4 letras')
+  } else if (email.length < 5) {
+    alert('Por favor preencha um email valido')
+  } else if (phone.length < 9) {
+    alert('Por favor preencha um numero de telefone valido')
+  } else if (image === '') {
+    alert('Por favor insira uma imagem')
+  } else if (address.length < 10) {
+    alert('Por favor insira um endereco valido')
+  } else if (region === '') {
+    alert('Por favor selecione um bairro')
+  } else if (category === '') {
+    alert('Por favor selecione uma categoria')
+  } else {
+    let newStore = {
+      name: name,
+      email: email,
+      phone: phone,
+      image: image,
+      address: address,
+      region: region,
+      category: category
+    }
+    
+    insertStore(newStore)
+  }
+}
 
 function addStore() {
 
@@ -46,7 +80,7 @@ function addStore() {
 
   const storeForm = () => {
     return `
-      <form onsubmit="insertStore()" action="#" method="post" id="formStore">
+      <form onsubmit="valideForm()"  method="post" id="formStore">
         <div class="form-group mt-5">
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
@@ -81,7 +115,7 @@ function addStore() {
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
               <select class="form-control" id="regionStore">
-                <option>---selecione o bairro---</option>
+                <option value="">---selecione o bairro---</option>
               </select>
             </div>
           </div>
@@ -89,7 +123,7 @@ function addStore() {
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
               <select class="form-control" id="categoryStore">
-                <option>---selecione o categoria---</option>
+                <option value="">---selecione o categoria---</option>
               </select>
             </div>
           </div>

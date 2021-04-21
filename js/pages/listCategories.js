@@ -1,3 +1,17 @@
+function deleteCategory(id) {
+  let removeCategory = confirm('Deseja realmente excluir essa categoria?');
+
+  if (removeCategory === true) {
+    fetch(API_URL + `categories/${id}.json`, {
+      method: 'DELETE',
+    })
+    alert('Categoria excluida com sucesso.')
+
+    document.location.reload(true)
+  }
+}
+
+
 function listCategories() {
 
   fetch(API_URL + 'categories.json')
@@ -12,11 +26,10 @@ function listCategories() {
             <td>${category.name}</td>
             <td>${category.description}</td>
             <td>
-              <button class="btn btn-outline-warning">Editar</button>
-              <button class="btn btn-outline-danger">Excluir</button>
+              <button class="btn btn-warning">Editar</button>
+              <button class="btn btn-danger" onclick="deleteCategory('${id}')">Excluir</button>
             </td>
           </tr>
-
         `
       }
     })
