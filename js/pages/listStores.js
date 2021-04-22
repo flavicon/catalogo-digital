@@ -22,13 +22,13 @@ function listStores() {
         console.log(id)
         
         document.getElementById('tableStore').innerHTML += `
-          <tr>
-            <td>${store.image}</td>
-            <td>${store.name}</td>
-            <td>${store.email}</td>
-            <td>${store.phone}</td>
-            <td>
-              <button class="btn btn-warning">Editar</button>
+          <tr> 
+            <td><img src="${store.image}" alt="logo ${store.name}" width="100px"></td>
+            <td class="align-middle">${store.name}</td>
+            <td class="align-middle">${store.email}</td>
+            <td class="align-middle">${store.phone}</td>
+            <td class="align-middle">
+              <button class="btn btn-warning" data-toggle="modal" data-target="#editStoreModal">Editar</button>
               <button class="btn btn-danger" onclick="deleteStore('${id}')">Excluir</button>
             </td>
           </tr>
@@ -36,9 +36,97 @@ function listStores() {
       }
     })
 
+  const formEditStore = () => {
+
+    fetch(API_URL + "stores.json")
+      .then(response => response.json())
+      .then(response => {
+        
+      })
+
+    return `
+      <form>
+        <div class="form-group mt-5">
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <input type="text" class="form-control" id="nameStore" placeholder="Nome" required>
+            </div>
+          </div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <input type="email" class="form-control" id="emailStore" placeholder="E-mail" required>
+            </div>
+          </div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <input type="number" class="form-control" id="phoneStore" placeholder="Telefone" required>
+            </div>
+          </div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <input type="text" class="form-control" id="imageStore" placeholder="Insira a URL da imagem" required>
+            </div>
+          </div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <textarea type="text" placeholder="Endereço" class="form-control" id="addressStore" rows="5" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <select class="form-control" id="regionStore" required>
+                <option value="">---selecione o bairro---</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-8">
+              <select class="form-control" id="categoryStore" required>
+                <option value="">---selecione o categoria---</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+      `
+    }
+
+  
+    const modal =  () => {
+
+    return `
+      <div class="modal fade" id="editStoreModal" tabindex="-1" aria-labelledby="editStoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editStoreModalLabel">Editar loja</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="storeModal">
+              ${formEditStore()} 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-warning">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  }
+
   
   return `
     ${navbar()}
+    ${modal()}
     <section class="searchStorey mb-3">
       <h1 class="text-center">Consultar Lojas</h1>
       <div class="mt-5">
