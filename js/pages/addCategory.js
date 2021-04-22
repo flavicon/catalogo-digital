@@ -1,23 +1,44 @@
-function insertCategory() {
-  let newCategory = {
-    name: document.getElementById('nameCategory').value,
-    description: document.getElementById('descriptionCategory').value,
-    image: document.getElementById('imageCategory').value,
-  }
+function insertCategory(newCategory) {
 
   fetch(API_URL + 'categories.json', {
     method: 'POST',
     body: JSON.stringify(newCategory),
   })
 
-  alert('cadastrado com sucesso');
+  alert('categoria cadastrada com sucesso');
+
+  document.getElementById('formCategory').reset()
 };
+
+function validateFormCategory() {
+  event.preventDefault()
+
+  let name = document.getElementById('nameCategory').value
+  let description = document.getElementById('descriptionCategory').value
+  let image = document.getElementById('imageCategory').value
+
+  if (name.length < 4) {
+    alert('Por favor insira um nome com mais de 4 letras')
+  } else if (description.length < 10) {
+    alert('Por favor insira uma descricao com no minimo 10 letras')
+  } else if (image === '') {
+    alert('Por favor insira uma imagem')
+  } else {
+    const newCategory = {
+      name: name,
+      description: description,
+      image: image
+    }
+
+    insertCategory(newCategory)
+  }
+}
 
 function addCategory() {
 
   const categoryForm = () => {
     return `
-      <form onsubmit="insertCategory()" action="#" method="post" id="formCategory">
+      <form onsubmit="validateFormCategory()" method="post" id="formCategory">
         <div class="form-group mt-5">
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">

@@ -1,7 +1,6 @@
 function insertStore(newStore) {
   event.preventDefault()
 
-  document.getElementById('formStore').reset()
   fetch(API_URL + 'stores.json', {
     method: 'POST',
     body: JSON.stringify(newStore),
@@ -13,7 +12,9 @@ function insertStore(newStore) {
 
 }
 
-function valideForm() {
+function validateFormStore() {
+  event.preventDefault()
+
   let name = document.getElementById('nameStore').value
   let email = document.getElementById('emailStore').value
   let phone = document.getElementById('phoneStore').value
@@ -37,7 +38,7 @@ function valideForm() {
   } else if (category === '') {
     alert('Por favor selecione uma categoria')
   } else {
-    let newStore = {
+    const newStore = {
       name: name,
       email: email,
       phone: phone,
@@ -80,41 +81,41 @@ function addStore() {
 
   const storeForm = () => {
     return `
-      <form onsubmit="valideForm()"  method="post" id="formStore">
+      <form onsubmit="validateFormStore()"  method="post" id="formStore">
         <div class="form-group mt-5">
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <input type="text" class="form-control" id="nameStore" placeholder="Nome">
+              <input type="text" class="form-control" id="nameStore" placeholder="Nome" required>
             </div>
           </div>
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <input type="email" class="form-control" id="emailStore" placeholder="E-mail">
+              <input type="email" class="form-control" id="emailStore" placeholder="E-mail" required>
             </div>
           </div>
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <input type="number" class="form-control" id="phoneStore" placeholder="Telefone">
+              <input type="number" class="form-control" id="phoneStore" placeholder="Telefone" required>
             </div>
           </div>
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <input type="text" class="form-control" id="imageStore" placeholder="Insira a URL da imagem">
+              <input type="text" class="form-control" id="imageStore" placeholder="Insira a URL da imagem" required>
             </div>
           </div>
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <textarea type="text" placeholder="Endereço" class="form-control" id="addressStore" rows="5"></textarea>
+              <textarea type="text" placeholder="Endereço" class="form-control" id="addressStore" rows="5" required></textarea>
             </div>
           </div>
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <select class="form-control" id="regionStore">
+              <select class="form-control" id="regionStore" required>
                 <option value="">---selecione o bairro---</option>
               </select>
             </div>
@@ -122,7 +123,7 @@ function addStore() {
 
           <div class="form-row justify-content-center">
             <div class="form-group col-md-8">
-              <select class="form-control" id="categoryStore">
+              <select class="form-control" id="categoryStore" required>
                 <option value="">---selecione o categoria---</option>
               </select>
             </div>
